@@ -1,5 +1,5 @@
 package nl.han.ica.spookrijder;
 
-public class Toolkit {
+public class Toolkit extends Collectable {
 
 }

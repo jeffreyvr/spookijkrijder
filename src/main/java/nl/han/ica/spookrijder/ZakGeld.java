@@ -1,5 +1,5 @@
 package nl.han.ica.spookrijder;
 
-public class ZakGeld {
+public class ZakGeld extends Collectable {
 
 }
