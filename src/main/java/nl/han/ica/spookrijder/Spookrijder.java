@@ -1,7 +1,5 @@
 package nl.han.ica.spookrijder;
 
-//import com.sun.glass.ui.View;
-
 import nl.han.ica.OOPDProcessingEngineHAN.Engine.GameEngine;
 import nl.han.ica.OOPDProcessingEngineHAN.View.View;
 import processing.core.PApplet;
