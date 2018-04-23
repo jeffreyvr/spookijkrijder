@@ -4,9 +4,8 @@ import nl.han.ica.OOPDProcessingEngineHAN.Engine.GameEngine;
 import nl.han.ica.OOPDProcessingEngineHAN.View.View;
 import processing.core.PApplet;
 
+@SuppressWarnings("serial")
 public class Spookrijder extends GameEngine {
-	private int aantal_autos = 3;
-	
 	public static void main(String[] args) {
 		PApplet.main(new String[]{"nl.han.ica.spookrijder.Spookrijder"});
 	}
@@ -22,7 +21,7 @@ public class Spookrijder extends GameEngine {
 	public void update() {
 		
 	}
-	
+	 
 	private void createViewWithoutViewport(int screenWidth, int screenHeight) {
 		View view = new View(screenWidth,screenHeight);
         view.setBackground(loadImage("src/main/java/nl/han/ica/spookrijder/media/background.jpg"));
@@ -32,9 +31,8 @@ public class Spookrijder extends GameEngine {
 	}
 	
 	private void createObjects() {
-	    for ( int i = 0; i < this.aantal_autos; i++ ) {
-	    	addGameObject( new Auto(this), i*50, (float) (i*100) + 50 );
-	    }
+		addGameObject( new Auto(this), 0, 0 );
+		addGameObject( new Vrachtwagen(this), this.getWidth(), 90 );
 	}
 
 }

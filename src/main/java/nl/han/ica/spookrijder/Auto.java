@@ -8,19 +8,19 @@ public class Auto extends SpriteObject {
 	private Spookrijder wereld;
 	
 	public Auto(Spookrijder wereld) {
-        this(new Sprite("src/main/java/nl/han/ica/spookrijder/media/car.png"));
-        this.wereld=wereld;
-    }
+	    this(new Sprite("src/main/java/nl/han/ica/spookrijder/media/car.png"));
+	    this.wereld=wereld;
+	}
 	
-	private Auto(Sprite sprite) {
+	public Auto(Sprite sprite) {
 	    super(sprite);
 	    setxSpeed(3);
 	}
 
 	@Override
 	public void update() {
-	    if (getX()+getWidth()<=0) {
-	        setX(wereld.getWidth());
+	    if ( this.getX() > wereld.getWidth() ) {
+	        this.setX( 0 - this.getWidth() );
 	    }
 	
 	}
