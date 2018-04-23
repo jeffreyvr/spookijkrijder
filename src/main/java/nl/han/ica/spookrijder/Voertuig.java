@@ -4,32 +4,44 @@ import java.util.List;
 
 import nl.han.ica.OOPDProcessingEngineHAN.Collision.ICollidableWithGameObjects;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.GameObject;
-import processing.core.PGraphics;
+import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
+import nl.han.ica.OOPDProcessingEngineHAN.Objects.SpriteObject;
 
-public class Voertuig extends GameObject implements ICollidableWithGameObjects {
+public class Voertuig extends SpriteObject implements ICollidableWithGameObjects {
 	private Spookrijder wereld;
+	public boolean aangeraakt = false;
 	
-	public Voertuig(Spookrijder wereld) {
-	    this.wereld=wereld;
-	}
-	
-	@Override
-	public void update() {
-		if ( getX() + getWidth() <= 0 ) {
-	        setX( wereld.getWidth() );
-	    }
+	public Voertuig(Spookrijder wereld, Sprite sprite) {
+		super(sprite);
+		
+		this.wereld=wereld;
 	}
 
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
-		// TODO Auto-generated method stub
+		
+		for ( GameObject object : collidedGameObjects ) {
+			
+			if ( object instanceof Speler ) {
+				
+				if ( ! this.aangeraakt ) {
+					this.aangeraakt = true;
+					
+					System.out.println("botsing");
+					
+					break;
+				}
+				
+			}
+			
+		}
 		
 	}
 
 	@Override
-	public void draw(PGraphics g) {
-		// TODO Auto-generated method stub
+	public void update() {
 		
 	}
+	
 	
 }

@@ -2,17 +2,24 @@ package nl.han.ica.spookrijder;
 
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 
-public class Vrachtwagen extends Auto {
+public class Vrachtwagen extends Voertuig {
 	private Spookrijder wereld;
+	private int height = 75;
+	private int width = 182;
+	
+	public Vrachtwagen(Spookrijder wereld, Sprite sprite) {
+		super(wereld, sprite);
+		this.wereld=wereld;
+		sprite.resize(width, height);
+	}
 	
 	public Vrachtwagen(Spookrijder wereld) {
-	    this(new Sprite("src/main/java/nl/han/ica/spookrijder/media/truck.png"));
-	    this.wereld=wereld;
-	}
-
-	public Vrachtwagen(Sprite sprite) {
-		super(sprite);
-	    setxSpeed(-1);
+		this(
+			wereld, 
+			new Sprite("src/main/java/nl/han/ica/spookrijder/media/truck.png")
+		);
+		
+		setxSpeed(-1);
 	}
 	
 	@Override

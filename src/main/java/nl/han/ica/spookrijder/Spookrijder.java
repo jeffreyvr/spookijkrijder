@@ -31,8 +31,11 @@ public class Spookrijder extends GameEngine {
 	}
 	
 	private void createObjects() {
-		addGameObject( new Auto(this), 0, 0 );
-		addGameObject( new Vrachtwagen(this), this.getWidth(), 90 );
+		addGameObject( new Auto(this), this.getWidth(), 30 );
+		addGameObject( new Vrachtwagen(this), this.getWidth(), 80 );
+		addGameObject( new Motor(this), this.getWidth(), 120 );
+
+		addGameObject( new Speler(this), 0, 140 );
 	}
 
 }
