@@ -10,14 +10,14 @@ public class Voertuig extends GameObject implements ICollidableWithGameObjects {
 	private Spookrijder wereld;
 	
 	public Voertuig(Spookrijder wereld) {
-        this.wereld=wereld;
-    }
+	    this.wereld=wereld;
+	}
 	
 	@Override
 	public void update() {
 		if ( getX() + getWidth() <= 0 ) {
-            setX(wereld.getWidth());
-        }
+	        setX( wereld.getWidth() );
+	    }
 	}
 
 	@Override
