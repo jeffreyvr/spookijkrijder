@@ -29,4 +29,12 @@ public class Speler extends Voertuig {
 	    }
 	
 	}
+	
+	@Override
+    public void keyPressed(int keyCode, char key) {
+        if (key == ' ') {
+            System.out.println("Spatie!");
+            this.setX( this.getX() + this.getHeight() );
+        }
+    }
 }

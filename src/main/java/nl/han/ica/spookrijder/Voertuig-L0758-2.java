@@ -7,24 +7,41 @@ import nl.han.ica.OOPDProcessingEngineHAN.Objects.GameObject;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.SpriteObject;
 
-public class Collectable extends SpriteObject implements ICollidableWithGameObjects {
-	private boolean aangeraakt = false;
+public class Voertuig extends SpriteObject implements ICollidableWithGameObjects {
 	private Spookrijder wereld;
+	private boolean aangeraakt = false;
 	
-	public Collectable(Spookrijder wereld, Sprite sprite) {
+	public Voertuig(Spookrijder wereld, Sprite sprite) {
 		super(sprite);
 		
 		this.wereld=wereld;
 	}
-	
+
+	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
-		this.aangeraakt = true;
+		
+		for ( GameObject object : collidedGameObjects ) {
+			
+			if ( object instanceof Speler ) {
+				
+				if ( ! this.aangeraakt ) {
+					this.aangeraakt = true;
+					
+					System.out.println("botsing");
+					
+					break;
+				}
+				
+			}
+			
+		}
+		
+	}
+
+	@Override
+	public void update() {
+		
 	}
 	
-	public void update() {
-		if ( aangeraakt ) {
-			// delete, update score
-		}
-	}
 	
 }
