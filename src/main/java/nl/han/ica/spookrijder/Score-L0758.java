@@ -8,19 +8,19 @@ import nl.han.ica.OOPDProcessingEngineHAN.Objects.TextObject;
  *
  */
 public class Score {
-	private Spookrijder spookrijder;
+	private Spookrijder wereld;
 
-	public Score(Spookrijder spookrijder) {
-		this.spookrijder = spookrijder;
+	public Score(Spookrijder wereld) {
+		this.wereld = wereld;
 	}
 	
-	public void maakDashboard(int dashboardWidth,int dashboardHeight) {
+	public void createDashboard(int dashboardWidth,int dashboardHeight) {
         Dashboard dashboard = new Dashboard(100,100, dashboardWidth, dashboardHeight);
         TextObject dashboardText=new TextObject("Hoi Jurrian", 14);
         TextObject dashboardText2=new TextObject("Hoi Jeffrey", 14);
         dashboard.addGameObject(dashboardText, 0, 0);
         dashboard.addGameObject(dashboardText2, 0, 20 );
-        spookrijder.addDashboard(dashboard);
+        wereld.addDashboard(dashboard);
     }
 
 }

@@ -1,35 +1,41 @@
 package nl.han.ica.spookrijder;
 
-//import nl.han.ica.OOPDProcessingEngineHAN.Objects.AnimatedSpriteObject;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
-import nl.han.ica.OOPDProcessingEngineHAN.Objects.SpriteObject;
 
 public class Auto extends Voertuig {
-	private Spookrijder wereld;
-	private int height = 50;
-	private int width = 118;
+	private Spookrijder spookrijder;
+	public int hoogte = 50;
+	public int breedte = 118;
+	private static Sprite autoSprite = new Sprite("src/main/java/nl/han/ica/spookrijder/media/audi.png");
 	
-	public Auto(Spookrijder wereld, Sprite sprite) {
-		super(wereld, sprite);
-		this.wereld=wereld;
-		sprite.resize(width, height);
+	public Auto(Spookrijder spookrijder, Sprite sprite) {
+		super(spookrijder, sprite);
+		
+		autoSprite.resize(breedte,hoogte);
+		
+		this.spookrijder=spookrijder;
 	}
 	
-	public Auto(Spookrijder wereld) {
+	public Auto(Spookrijder spookrijder) {
 		this(
-			wereld, 
-			new Sprite("src/main/java/nl/han/ica/spookrijder/media/audi.png")
+			spookrijder, 
+			autoSprite
 		);
 		
-		setxSpeed(-2);
+		setxSpeed(-3);
 	}
 
 	@Override
 	public void update() {
-	    if ( this.getX() > wereld.getWidth() ) {
-	        this.setX( 0 - this.getWidth() );
-	    }
+		if ( this.getX() < ( 0 - this.getWidth() ) ) {
+	        this.setX( spookrijder.getWidth() + this.getWidth() );
+		}
 	
 	}
 	
+	@Override
+	public float getHeight() {
+		return this.hoogte;
+	}
+
 }

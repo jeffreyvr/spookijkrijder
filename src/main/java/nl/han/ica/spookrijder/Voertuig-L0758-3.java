@@ -8,13 +8,13 @@ import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.SpriteObject;
 
 public class Voertuig extends SpriteObject implements ICollidableWithGameObjects {
-	private Spookrijder spookrijder;
+	private Spookrijder wereld;
 	public boolean aangeraakt = false;
 	
 	public Voertuig(Spookrijder wereld, Sprite sprite) {
 		super(sprite);
 		
-		this.spookrijder=spookrijder;
+		this.wereld=wereld;
 	}
 
 	@Override

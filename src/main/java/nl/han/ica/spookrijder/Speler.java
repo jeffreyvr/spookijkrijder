@@ -3,20 +3,21 @@ package nl.han.ica.spookrijder;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 
 public class Speler extends Voertuig {
-	private Spookrijder wereld;
-	private int height = 50;
-	private int width = 118;
+	private Spookrijder spookrijder;
+	private int hoogte = 50;
+	private int breedte = 118;
+	private static Sprite spelerSprite = new Sprite("src/main/java/nl/han/ica/spookrijder/media/car.png");
 	
-	public Speler(Spookrijder wereld, Sprite sprite) {
-		super(wereld, sprite);
-		this.wereld=wereld;
-		sprite.resize(width, height);
+	public Speler(Spookrijder spookrijder, Sprite sprite) {
+		super(spookrijder, sprite);
+		this.spookrijder=spookrijder;
+		spelerSprite.resize(breedte,hoogte);
 	}
 	
-	public Speler(Spookrijder wereld) {
-		this(
-			wereld, 
-			new Sprite("src/main/java/nl/han/ica/spookrijder/media/car.png")
+	public Speler(Spookrijder spookrijder) {
+		this(                      
+			spookrijder, 
+			spelerSprite
 		);
 		
 		setxSpeed(0);
@@ -24,7 +25,7 @@ public class Speler extends Voertuig {
 
 	@Override
 	public void update() {
-	    if ( this.getX() > wereld.getWidth() ) {
+	    if ( this.getX() > spookrijder.getWidth() ) {
 	        this.setX( 0 - this.getWidth() );
 	    }
 	
@@ -32,9 +33,19 @@ public class Speler extends Voertuig {
 	
 	@Override
     public void keyPressed(int keyCode, char key) {
-        if (key == ' ') {
-            System.out.println("Spatie!");
-            this.setX( this.getX() + this.getHeight() );
+        if (keyCode == 38) { // UP
+            
+            this.setY( this.getY() - this.getHeight() );
+            
+        } else if ( keyCode == 40 ) { // DOWN
+        	
+        	this.setY( this.getY() + this.getHeight() );
+        	
         }
     }
+	
+	@Override
+	public float getHeight() {
+		return this.hoogte;
+	}
 }
