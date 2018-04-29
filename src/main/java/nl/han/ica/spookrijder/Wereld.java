@@ -21,7 +21,6 @@ public class Wereld {
 	
 	public void maakInteractieveObjecten() {
 		
-		
 		int aantal_autos = 3;
 		
 		for ( int i = 0; i < aantal_autos; i++ ) {
@@ -43,13 +42,13 @@ public class Wereld {
 		spookrijder.addGameObject( reparatieset, 200, spookrijder.banen[2]-reparatieset.getHeight()/2 );
 		
 		Speler speler = new Speler(spookrijder);
-		spookrijder.addGameObject( speler, 0, spookrijder.banen[1]-speler.getHeight()/2 );
+		spookrijder.addGameObject( speler, 50, spookrijder.banen[1]-speler.getHeight()/2 );
 		
 	}
 	
 	public void maakStatischeObjecten() {
 		spookrijder.addGameObject( new Boom(spookrijder), 0, 0 );
 		spookrijder.addGameObject( new Boom(spookrijder), spookrijder.getWidth(), 0 );
-		spookrijder.addGameObject( new Boom(spookrijder), spookrijder.getWidth() * 2, 0 );
+		spookrijder.addGameObject( new Boom(spookrijder), spookrijder.getWidth()*2, 0 );		
 	}
 }

@@ -1,6 +1,7 @@
 package nl.han.ica.spookrijder;
 
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
+import nl.han.ica.OOPDProcessingEngineHAN.Sound.Sound;
 
 public class Speler extends Voertuig {
 	private Spookrijder spookrijder;
@@ -8,6 +9,7 @@ public class Speler extends Voertuig {
 	private int breedte = 118;
 	private int huidige_baan = 1;
 	private static Sprite spelerSprite = new Sprite("src/main/java/nl/han/ica/spookrijder/media/car.png");
+	private Sound crash;
 	
 	public Speler(Spookrijder spookrijder, Sprite sprite) {
 		super(spookrijder, sprite);
@@ -70,4 +72,9 @@ public class Speler extends Voertuig {
 	public float getHeight() {
 		return this.hoogte;
 	}
+	
+	public void crashSound() {
+        this.crash = new Sound(spookrijder, "src/main/java/nl/han/ica/spookrijder/media/crash.mp3");
+        this.crash.play();
+    }
 }

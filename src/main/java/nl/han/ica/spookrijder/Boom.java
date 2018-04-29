@@ -18,14 +18,14 @@ public class Boom extends StatischObject {
 	public Boom(Spookrijder spookrijder) {
 		this(
 			spookrijder, 
-			new Sprite("src/main/java/nl/han/ica/spookrijder/media/background-elements_1.png")
+			new Sprite("src/main/java/nl/han/ica/spookrijder/media/background-elements_2.png")
 		);
 	}
 
 	@Override
 	public void update() {
 		if ( this.getX() < ( 0 - this.getWidth() ) ) {
-	        this.setX( spookrijder.getWidth() + this.getWidth() );
+	        this.setX( spookrijder.getWidth() );
 		}
 	}
 

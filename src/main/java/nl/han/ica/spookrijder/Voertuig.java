@@ -6,6 +6,7 @@ import nl.han.ica.OOPDProcessingEngineHAN.Collision.ICollidableWithGameObjects;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.GameObject;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.SpriteObject;
+import nl.han.ica.OOPDProcessingEngineHAN.Sound.Sound;
 
 public class Voertuig extends SpriteObject implements ICollidableWithGameObjects {
 	private Spookrijder spookrijder;
@@ -28,11 +29,12 @@ public class Voertuig extends SpriteObject implements ICollidableWithGameObjects
 					this.aangeraakt = true;
 					
 					System.out.println("botsing");
+					((Speler) object).crashSound();
 					
 					break;
 				}
 				
-			}
+			} 
 			
 		}
 		
@@ -42,6 +44,5 @@ public class Voertuig extends SpriteObject implements ICollidableWithGameObjects
 	public void update() {
 		
 	}
-	
 	
 }

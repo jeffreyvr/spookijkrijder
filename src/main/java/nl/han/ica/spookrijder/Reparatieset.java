@@ -6,22 +6,28 @@ public class Reparatieset extends VerzamelObject {
 	private Spookrijder spookrijder;
 	private int hoogte = 40;
 	private int breedte = 40;
+	private static Sprite reparatiesetSprite = new Sprite("src/main/java/nl/han/ica/spookrijder/media/reparatieset.png");
 	
 	public Reparatieset(Spookrijder spookrijder, Sprite sprite) {
 		super(spookrijder, sprite);
+		reparatiesetSprite.resize(breedte,hoogte);
 		this.spookrijder=spookrijder;
-		sprite.resize(breedte,hoogte);
 	}
 	
 	public Reparatieset(Spookrijder spookrijder) {
 		this(
 			spookrijder, 
-			new Sprite("src/main/java/nl/han/ica/spookrijder/media/reparatieset.png")
+			reparatiesetSprite
 		);
 	}
 
 	@Override
 	public void update() {
+	}
+	
+	@Override
+	public float getHeight() {
+		return this.height;
 	}
 
 }
