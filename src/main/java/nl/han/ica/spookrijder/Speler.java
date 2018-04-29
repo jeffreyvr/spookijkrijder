@@ -6,6 +6,7 @@ public class Speler extends Voertuig {
 	private Spookrijder spookrijder;
 	private int hoogte = 50;
 	private int breedte = 118;
+	private int huidige_baan = 1;
 	private static Sprite spelerSprite = new Sprite("src/main/java/nl/han/ica/spookrijder/media/car.png");
 	
 	public Speler(Spookrijder spookrijder, Sprite sprite) {
@@ -22,6 +23,14 @@ public class Speler extends Voertuig {
 		
 		setxSpeed(0);
 	}
+	
+	public void setHuidigeBaan(int baan) {
+		this.huidige_baan = baan;
+	}
+	
+	public int getHuidigeBaan() {
+		return this.huidige_baan;
+	}
 
 	@Override
 	public void update() {
@@ -33,15 +42,28 @@ public class Speler extends Voertuig {
 	
 	@Override
     public void keyPressed(int keyCode, char key) {
-        if (keyCode == 38) { // UP
-            
-            this.setY( this.getY() - this.getHeight() );
-            
-        } else if ( keyCode == 40 ) { // DOWN
-        	
-        	this.setY( this.getY() + this.getHeight() );
-        	
-        }
+		String keyName = ( keyCode == 40 ? "down" : "up" );
+		boolean verander = false;
+		
+		if ( keyName == "up" ) {
+			
+			if ( this.getHuidigeBaan() > 0 ) {
+				verander=true;
+				this.setHuidigeBaan( this.getHuidigeBaan() - 1 );
+			}
+			
+		} else if ( keyName == "down" ) {
+			
+			if ( this.getHuidigeBaan() < spookrijder.banen.length - 1 ) {
+				verander=true;
+				this.setHuidigeBaan( this.getHuidigeBaan() + 1 );
+			}
+			
+		}
+		
+		if ( verander ) {
+			this.setY( spookrijder.banen[this.getHuidigeBaan()]-this.getHeight()/2);
+		}
     }
 	
 	@Override

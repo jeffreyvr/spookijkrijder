@@ -5,6 +5,9 @@ import processing.core.PApplet;
 
 @SuppressWarnings("serial")
 public class Spookrijder extends GameEngine {	
+	public int banen[] = {75, 153, 233};
+	public int huidige_baan = 1;
+	
 	public static void main(String[] args) {
 		PApplet.main(new String[]{"nl.han.ica.spookrijder.Spookrijder"});
 	}
