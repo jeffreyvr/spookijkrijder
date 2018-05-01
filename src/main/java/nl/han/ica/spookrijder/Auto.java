@@ -1,5 +1,8 @@
 package nl.han.ica.spookrijder;
 
+import java.util.List;
+
+import nl.han.ica.OOPDProcessingEngineHAN.Objects.GameObject;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 
 public class Auto extends Voertuig {
@@ -13,6 +16,9 @@ public class Auto extends Voertuig {
 		
 		autoSprite.resize(breedte,hoogte);
 		
+		this.setHeight(hoogte);
+		this.setWidth(breedte);
+		
 		this.spookrijder=spookrijder;
 	}
 	
@@ -23,19 +29,6 @@ public class Auto extends Voertuig {
 		);
 		
 		setxSpeed(-3);
-	}
-
-	@Override
-	public void update() {
-		if ( this.getX() < ( 0 - this.getWidth() ) ) {
-	        this.setX( spookrijder.getWidth() + this.getWidth() );
-		}
-	
-	}
-	
-	@Override
-	public float getHeight() {
-		return this.hoogte;
 	}
 
 }

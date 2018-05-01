@@ -6,15 +6,20 @@ import processing.core.PApplet;
 @SuppressWarnings("serial")
 public class Spookrijder extends GameEngine {	
 	public int banen[] = {75, 153, 233};
-	public int huidige_baan = 1;
+	public Speler speler;
 	
 	public static void main(String[] args) {
 		PApplet.main(new String[]{"nl.han.ica.spookrijder.Spookrijder"});
 	}
 	
+	public Spookrijder() {
+		this.speler = new Speler(this);
+	}
+	
 	@Override
     public void setupGame() {
-		new Score(this).maakDashboard(960, 600);
+		new Score(this).maakDashboard(960, 600, (int) this.speler.getStatus());
+		
 		Wereld wereld = new Wereld(this);
 		
 		wereld.maakViewZonderViewport(960, 600);

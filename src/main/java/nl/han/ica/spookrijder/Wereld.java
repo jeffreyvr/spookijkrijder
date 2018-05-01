@@ -28,6 +28,7 @@ public class Wereld {
 			spookrijder.addGameObject(new Auto(spookrijder), spookrijder.getWidth() * i, spookrijder.banen[i]-auto.getHeight()/2 );
 		}
 		
+		spookrijder.addGameObject( spookrijder.speler, 50, spookrijder.banen[1]-spookrijder.speler.getHeight()/2 );
 		
 		Vrachtwagen vrachtwagen = new Vrachtwagen(spookrijder);
 		spookrijder.addGameObject( vrachtwagen, spookrijder.getWidth(), spookrijder.banen[0]-vrachtwagen.getHeight()/2 );
@@ -40,9 +41,6 @@ public class Wereld {
 		
 		Reparatieset reparatieset = new Reparatieset(spookrijder); 
 		spookrijder.addGameObject( reparatieset, 200, spookrijder.banen[2]-reparatieset.getHeight()/2 );
-		
-		Speler speler = new Speler(spookrijder);
-		spookrijder.addGameObject( speler, 50, spookrijder.banen[1]-speler.getHeight()/2 );
 		
 	}
 	

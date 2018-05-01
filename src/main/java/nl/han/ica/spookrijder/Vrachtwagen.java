@@ -10,7 +10,12 @@ public class Vrachtwagen extends Voertuig {
 	
 	public Vrachtwagen(Spookrijder spookrijder, Sprite sprite) {
 		super(spookrijder, sprite);
+		
 		vrachtwagenSprite.resize(breedte,hoogte);
+		
+		this.setHeight(hoogte);
+		this.setWidth(breedte);
+		
 		this.spookrijder=spookrijder;
 	}
 	
@@ -21,19 +26,6 @@ public class Vrachtwagen extends Voertuig {
 		);
 		
 		setxSpeed(-2);
-	}
-	
-	@Override
-	public void update() {
-		if ( this.getX() < ( 0 - this.getWidth() ) ) {
-	        this.setX( spookrijder.getWidth() + this.getWidth() );
-	    }
-	
-	}
-	
-	@Override
-	public float getHeight() {
-		return this.hoogte;
 	}
 	
 }

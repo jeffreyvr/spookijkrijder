@@ -14,12 +14,10 @@ public class Score {
 		this.spookrijder = spookrijder;
 	}
 	
-	public void maakDashboard(int dashboardWidth,int dashboardHeight) {
-        Dashboard dashboard = new Dashboard(100,100, dashboardWidth, dashboardHeight);
-        TextObject dashboardText=new TextObject("Hoi Jurrian", 14);
-        TextObject dashboardText2=new TextObject("Hoi Jeffrey", 14);
+	public void maakDashboard(int dashboardWidth,int dashboardHeight, int status) {
+        Dashboard dashboard = new Dashboard(10,10, dashboardWidth, dashboardHeight);
+        TextObject dashboardText=new TextObject("Status: " + status, 14);
         dashboard.addGameObject(dashboardText, 0, 0);
-        dashboard.addGameObject(dashboardText2, 0, 20 );
         spookrijder.addDashboard(dashboard);
     }
 
