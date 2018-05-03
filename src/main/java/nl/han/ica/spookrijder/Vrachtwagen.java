@@ -3,7 +3,6 @@ package nl.han.ica.spookrijder;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 
 public class Vrachtwagen extends Voertuig {
-	private Spookrijder spookrijder;
 	private int hoogte = 75;
 	private int breedte = 182;
 	private static Sprite vrachtwagenSprite = new Sprite("src/main/java/nl/han/ica/spookrijder/media/truck.png");
@@ -15,8 +14,6 @@ public class Vrachtwagen extends Voertuig {
 		
 		this.setHeight(hoogte);
 		this.setWidth(breedte);
-		
-		this.spookrijder=spookrijder;
 	}
 	
 	public Vrachtwagen(Spookrijder spookrijder) {
@@ -25,7 +22,7 @@ public class Vrachtwagen extends Voertuig {
 			vrachtwagenSprite
 		);
 		
-		setxSpeed(-2);
+		setxSpeed(-4);
 	}
 	
 }

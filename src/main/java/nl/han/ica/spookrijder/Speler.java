@@ -14,7 +14,8 @@ public class Speler extends Voertuig implements ICollidableWithGameObjects {
 	private int huidige_baan = 1;
 	private static Sprite spelerSprite = new Sprite("src/main/java/nl/han/ica/spookrijder/media/car.png");
 	private Sound crash;
-	private float status = 100; // health
+	private int status = 100; // health
+	private int geld = 0;
 	
 	public Speler(Spookrijder spookrijder, Sprite sprite) {
 		super(spookrijder, sprite);
@@ -43,13 +44,22 @@ public class Speler extends Voertuig implements ICollidableWithGameObjects {
 		return this.huidige_baan;
 	}
 	
-	public void setStatus(float f) {
-		System.out.println("Schade update: " + (float) f);
-		this.status = f;
+	public void setStatus(int status) {
+		System.out.println("Schade update: " + status);
+		this.status = status;
 	}
 	
-	public float getStatus() {
+	public int getStatus() {
 		return this.status;
+	}
+	
+	public void setGeld(int geld) {
+		System.out.println("Geld update: " + geld);
+		this.geld = geld;
+	}
+	
+	public int getGeld() {
+		return this.geld;
 	}
 	
 	@Override
@@ -85,7 +95,7 @@ public class Speler extends Voertuig implements ICollidableWithGameObjects {
 	
 	public void crashSound() {
         this.crash = new Sound(spookrijder, "src/main/java/nl/han/ica/spookrijder/media/crash.mp3");
-        this.crash.play();
+        //this.crash.play();
     }
 	
 	@Override
@@ -94,15 +104,26 @@ public class Speler extends Voertuig implements ICollidableWithGameObjects {
 			
 			if ( object instanceof Voertuig && ((Voertuig) object).getAangeraakt() == false ) {
 				if ( object instanceof Auto ) {
-					spookrijder.speler.setStatus( spookrijder.speler.getStatus() - (float) 25 );
+					spookrijder.speler.setStatus( spookrijder.speler.getStatus() - 20 );
 				} else if ( object instanceof Motor ) {
-					spookrijder.speler.setStatus( spookrijder.speler.getStatus() - (float) 12.5 );
+					spookrijder.speler.setStatus( spookrijder.speler.getStatus() - 10 );
 				} else if ( object instanceof Vrachtwagen ) {
-					spookrijder.speler.setStatus( spookrijder.speler.getStatus() - (float) 50 );
+					spookrijder.speler.setStatus( spookrijder.speler.getStatus() - 40 );
 				}
 				
 				spookrijder.speler.crashSound();
 				((Voertuig) object).setAangeraakt(true);
+			
+			} else if ( object instanceof VerzamelObject && ((VerzamelObject) object).getAangeraakt() == false ) {
+				
+				if ( object instanceof ZakGeld ) {
+					spookrijder.speler.setGeld( spookrijder.speler.getGeld() + 10 );
+				} else if ( object instanceof Reparatieset ) {
+					spookrijder.speler.setStatus( 100 );
+				}
+				
+				((VerzamelObject) object).setVisible(false);
+				((VerzamelObject) object).setAangeraakt(true);
 			}
 			
 		}

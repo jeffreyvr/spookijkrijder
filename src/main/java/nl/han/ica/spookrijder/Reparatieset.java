@@ -3,7 +3,6 @@ package nl.han.ica.spookrijder;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 
 public class Reparatieset extends VerzamelObject {
-	private Spookrijder spookrijder;
 	private int hoogte = 40;
 	private int breedte = 40;
 	private static Sprite reparatiesetSprite = new Sprite("src/main/java/nl/han/ica/spookrijder/media/reparatieset.png");
@@ -11,7 +10,9 @@ public class Reparatieset extends VerzamelObject {
 	public Reparatieset(Spookrijder spookrijder, Sprite sprite) {
 		super(spookrijder, sprite);
 		reparatiesetSprite.resize(breedte,hoogte);
-		this.spookrijder=spookrijder;
+		
+		this.setHeight(hoogte);
+		this.setWidth(breedte);
 	}
 	
 	public Reparatieset(Spookrijder spookrijder) {
@@ -19,15 +20,6 @@ public class Reparatieset extends VerzamelObject {
 			spookrijder, 
 			reparatiesetSprite
 		);
-	}
-
-	@Override
-	public void update() {
-	}
-	
-	@Override
-	public float getHeight() {
-		return this.height;
 	}
 
 }

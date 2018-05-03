@@ -1,16 +1,11 @@
 package nl.han.ica.spookrijder;
 
-import java.util.List;
-
-import nl.han.ica.OOPDProcessingEngineHAN.Collision.ICollidableWithGameObjects;
-import nl.han.ica.OOPDProcessingEngineHAN.Objects.GameObject;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.SpriteObject;
-import nl.han.ica.OOPDProcessingEngineHAN.Sound.Sound;
 
 public class Voertuig extends SpriteObject {
 	private Spookrijder spookrijder;
-	public boolean aangeraakt = false;
+	private boolean aangeraakt = false;
 	private int hoogte;
 	private int breedte;
 	
