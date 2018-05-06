@@ -7,13 +7,6 @@ import nl.han.ica.OOPDProcessingEngineHAN.Objects.GameObject;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 import nl.han.ica.OOPDProcessingEngineHAN.Sound.Sound;
 
-/* 
-	 Icollidable op Voertuig implementeren
-	 Op voertuig class controle of het een speler betreft, zo niet, dan moet het een vrachtwagen,
-	motor of auto zijn. Als dat het geval is: baanwissel of snelheid mindering.
-	 Voor baanwissel moet ook de hudige baan per voertuig beschikbaar zijn
- */
-
 public class Speler extends Voertuig implements ICollidableWithGameObjects {
 	private Spookrijder spookrijder;
 	private int hoogte = 50;
@@ -28,6 +21,8 @@ public class Speler extends Voertuig implements ICollidableWithGameObjects {
 		super(spookrijder, sprite);
 		this.spookrijder=spookrijder;
 		spelerSprite.resize(breedte,hoogte);
+		this.setHeight(hoogte);
+		this.setWidth(breedte);
 	}
 	
 	public Speler(Spookrijder spookrijder) {
@@ -37,10 +32,6 @@ public class Speler extends Voertuig implements ICollidableWithGameObjects {
 		);
 		
 		setxSpeed(0);
-	}
-	
-	public float getWidth() {
-		return this.breedte;
 	}
 	
 	public void setHuidigeBaan(int baan) {
@@ -94,11 +85,6 @@ public class Speler extends Voertuig implements ICollidableWithGameObjects {
 			this.setY( spookrijder.banen[this.getHuidigeBaan()]-this.getHeight()/2);
 		}
     }
-	
-	@Override
-	public float getHeight() {
-		return this.hoogte;
-	}
 	
 	public void crashSound() {
         this.crash = new Sound(spookrijder, "src/main/java/nl/han/ica/spookrijder/media/crash.mp3");
