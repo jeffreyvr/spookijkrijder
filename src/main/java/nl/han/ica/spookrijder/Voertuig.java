@@ -37,7 +37,7 @@ public class Voertuig extends SpriteObject {
 			//this.setxSpeed(this.oorspronkelijke_snelheid);
 		}
 
-		this.pasAanVerkeer();
+		this.pasVerkeerAan();
 	}
 	
 	public int getCurrentBaan() {
@@ -49,7 +49,7 @@ public class Voertuig extends SpriteObject {
 		return 2;
 	}
 
-	public void pasAanVerkeer() {
+	public void pasVerkeerAan() {
 		for (GameObject object : spookrijder.getGameObjectItems()) {
 
 			if (object instanceof Speler || this instanceof Speler)
