@@ -59,6 +59,9 @@ public class Spookrijder extends GameEngine {
 		Motor motor = new Motor(this);
 		this.addGameObject( motor, this.getWidth(), this.banen[2]-motor.getHeight()/2 );
 		
+		Motor motor2 = new Motor(this);
+		this.addGameObject( motor2, 200, this.banen[0]-motor2.getHeight()/2 );
+		
 		ZakGeld zakgeld = new ZakGeld(this);
 		this.addGameObject( zakgeld, 800, this.banen[1]-zakgeld.getHeight()/2 );
 		

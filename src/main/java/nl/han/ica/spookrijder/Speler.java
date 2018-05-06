@@ -7,6 +7,13 @@ import nl.han.ica.OOPDProcessingEngineHAN.Objects.GameObject;
 import nl.han.ica.OOPDProcessingEngineHAN.Objects.Sprite;
 import nl.han.ica.OOPDProcessingEngineHAN.Sound.Sound;
 
+/* 
+	 Icollidable op Voertuig implementeren
+	 Op voertuig class controle of het een speler betreft, zo niet, dan moet het een vrachtwagen,
+	motor of auto zijn. Als dat het geval is: baanwissel of snelheid mindering.
+	 Voor baanwissel moet ook de hudige baan per voertuig beschikbaar zijn
+ */
+
 public class Speler extends Voertuig implements ICollidableWithGameObjects {
 	private Spookrijder spookrijder;
 	private int hoogte = 50;
