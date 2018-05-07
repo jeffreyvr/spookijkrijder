@@ -23,8 +23,6 @@ public class Auto extends Voertuig {
 		);
 		
 		setxSpeed(-5);
-		
-		this.oorspronkelijkeSnelheid= -5;
 	}
 
 }

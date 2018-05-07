@@ -19,7 +19,6 @@ public class Motor extends Voertuig {
 	public Motor(Spookrijder spookrijder) {
 		this(spookrijder, motorSprite);
 		setxSpeed(-6);
-		this.oorspronkelijkeSnelheid= -6;
 	}
 	
 }

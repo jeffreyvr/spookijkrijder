@@ -9,7 +9,7 @@ public class Voertuig extends SpriteObject {
 	private boolean aangeraakt = false;
 	private int hoogte;
 	private int breedte;
-	protected int oorspronkelijke_snelheid;
+	protected int oorspronkelijkeSnelheid;
 
 	public Voertuig(Spookrijder spookrijder, Sprite sprite) {
 		super(sprite);
@@ -70,9 +70,15 @@ public class Voertuig extends SpriteObject {
 					System.out.println("Bijna botsing, snelheid en X aanpassen");
 
 					object.setxSpeed(0);
-
+					
 					int terugzetX = (int) (objectXPos + 200);
-
+					
+					/*
+					while ( terugzetX < object.getX() ) {
+						object.setX(object.getX()+10);
+					}
+					*/
+					
 					object.setX(terugzetX);
 
 					object.setxSpeed(-4); // minst snelle object

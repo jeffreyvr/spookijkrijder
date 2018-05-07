@@ -23,7 +23,6 @@ public class Vrachtwagen extends Voertuig {
 		);
 		
 		setxSpeed(-4);
-		this.oorspronkelijkeSnelheid= -4;
 	}
 	
 }
