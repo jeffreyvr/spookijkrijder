@@ -1,5 +1,7 @@
 package nl.han.ica.spookrijder;
 
+import java.util.Random;
+
 import nl.han.ica.OOPDProcessingEngineHAN.Engine.GameEngine;
 import nl.han.ica.OOPDProcessingEngineHAN.View.View;
 import processing.core.PApplet;
@@ -130,8 +132,11 @@ public class Spookrijder extends GameEngine {
 		}
 
 		for (int i = 0; i < aantal_reparatiesets; i++) {
+			Random ran = new Random();
+			int x = ran.nextInt(2 - 0 + 1) + 0;
+			
 			Reparatieset reparatieset = new Reparatieset(this);
-			this.addGameObject(reparatieset, 300, this.banen[i] - reparatieset.getHeight() / 2);
+			this.addGameObject(reparatieset, 300, this.banen[x] - reparatieset.getHeight() / 2);
 		}
 		
 		this.addGameObject(this.speler, 50, this.banen[1] - this.speler.getHeight() / 2);

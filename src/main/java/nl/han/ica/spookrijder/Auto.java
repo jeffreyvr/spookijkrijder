@@ -12,7 +12,7 @@ public class Auto extends Voertuig {
 		this.setWidth(118);
 
 		autoSprite.resize((int) this.getWidth(), (int) this.getHeight());
-
+		
 		setxSpeed(-5);
 
 		this.geluidsnaam = "Auto";

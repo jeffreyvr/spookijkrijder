@@ -60,7 +60,7 @@ public abstract class Voertuig extends SpriteObject {
 
 		this.pasVerkeerAan();
 	}
-
+	
 	/**
 	 * Doe geluid
 	 * 
@@ -119,9 +119,7 @@ public abstract class Voertuig extends SpriteObject {
 				int marge = 200;
 
 				if ((objectXPos - thisXPos) < marge && (objectXPos - thisXPos) > 0) {
-					System.out.println("Bijna botsing, snelheid en X aanpassen");
-
-					object.setxSpeed(0);
+					object.setxSpeed(2);
 
 					int terugzetX = (int) (objectXPos + marge);
 
@@ -131,7 +129,8 @@ public abstract class Voertuig extends SpriteObject {
 
 				}
 			}
-
+			
+			
 		}
 	}
 

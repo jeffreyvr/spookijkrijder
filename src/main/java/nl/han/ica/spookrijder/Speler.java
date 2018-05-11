@@ -116,7 +116,6 @@ public class Speler extends Voertuig implements ICollidableWithGameObjects {
 
 			if (this.getHuidigeBaan() > 0) {
 				verander = true;
-				System.out.println("Baan switch naar null");
 				this.setHuidigeBaan(this.getHuidigeBaan() - 1);
 			}
 
@@ -130,10 +129,6 @@ public class Speler extends Voertuig implements ICollidableWithGameObjects {
 		}
 
 		if (verander) {
-			System.out.println("Verander is true");
-			System.out.println(this.getHeight() / 2);
-			System.out.println(this.getHuidigeBaan());
-
 			this.setY(spookrijder.banen[this.getHuidigeBaan()] - this.getHeight() / 2);
 		}
 	}
